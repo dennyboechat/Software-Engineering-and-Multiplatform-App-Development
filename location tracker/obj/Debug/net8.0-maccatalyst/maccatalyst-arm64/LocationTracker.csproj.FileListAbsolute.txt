@@ -301,6 +301,11 @@
 /Users/dennyboechat/Applications/Software-Engineering-and-Multiplatform-App-Development/location tracker/bin/Debug/net8.0-maccatalyst/maccatalyst-arm64/SkiaSharp.Views.Maui.Controls.dll
 /Users/dennyboechat/Applications/Software-Engineering-and-Multiplatform-App-Development/location tracker/bin/Debug/net8.0-maccatalyst/maccatalyst-arm64/SkiaSharp.Views.Maui.Core.dll
 /Users/dennyboechat/Applications/Software-Engineering-and-Multiplatform-App-Development/location tracker/bin/Debug/net8.0-maccatalyst/maccatalyst-arm64/libSkiaSharp.framework.zip
+/Users/dennyboechat/Applications/Software-Engineering-and-Multiplatform-App-Development/location tracker/bin/Debug/net8.0-maccatalyst/maccatalyst-arm64/SQLite-net.dll
+/Users/dennyboechat/Applications/Software-Engineering-and-Multiplatform-App-Development/location tracker/bin/Debug/net8.0-maccatalyst/maccatalyst-arm64/SQLitePCLRaw.batteries_v2.dll
+/Users/dennyboechat/Applications/Software-Engineering-and-Multiplatform-App-Development/location tracker/bin/Debug/net8.0-maccatalyst/maccatalyst-arm64/SQLitePCLRaw.core.dll
+/Users/dennyboechat/Applications/Software-Engineering-and-Multiplatform-App-Development/location tracker/bin/Debug/net8.0-maccatalyst/maccatalyst-arm64/SQLitePCLRaw.provider.e_sqlite3.dll
+/Users/dennyboechat/Applications/Software-Engineering-and-Multiplatform-App-Development/location tracker/bin/Debug/net8.0-maccatalyst/maccatalyst-arm64/libe_sqlite3.dylib
 /Users/dennyboechat/Applications/Software-Engineering-and-Multiplatform-App-Development/location tracker/obj/Debug/net8.0-maccatalyst/maccatalyst-arm64/resourcestamps/Microsoft.CSharp.stamp
 /Users/dennyboechat/Applications/Software-Engineering-and-Multiplatform-App-Development/location tracker/obj/Debug/net8.0-maccatalyst/maccatalyst-arm64/resourcestamps/Microsoft.Extensions.Configuration.Abstractions.stamp
 /Users/dennyboechat/Applications/Software-Engineering-and-Multiplatform-App-Development/location tracker/obj/Debug/net8.0-maccatalyst/maccatalyst-arm64/resourcestamps/Microsoft.Extensions.Configuration.stamp
@@ -330,6 +335,10 @@
 /Users/dennyboechat/Applications/Software-Engineering-and-Multiplatform-App-Development/location tracker/obj/Debug/net8.0-maccatalyst/maccatalyst-arm64/resourcestamps/SkiaSharp.Views.iOS.stamp
 /Users/dennyboechat/Applications/Software-Engineering-and-Multiplatform-App-Development/location tracker/obj/Debug/net8.0-maccatalyst/maccatalyst-arm64/resourcestamps/SkiaSharp.Views.Maui.Controls.stamp
 /Users/dennyboechat/Applications/Software-Engineering-and-Multiplatform-App-Development/location tracker/obj/Debug/net8.0-maccatalyst/maccatalyst-arm64/resourcestamps/SkiaSharp.Views.Maui.Core.stamp
+/Users/dennyboechat/Applications/Software-Engineering-and-Multiplatform-App-Development/location tracker/obj/Debug/net8.0-maccatalyst/maccatalyst-arm64/resourcestamps/SQLite-net.stamp
+/Users/dennyboechat/Applications/Software-Engineering-and-Multiplatform-App-Development/location tracker/obj/Debug/net8.0-maccatalyst/maccatalyst-arm64/resourcestamps/SQLitePCLRaw.batteries_v2.stamp
+/Users/dennyboechat/Applications/Software-Engineering-and-Multiplatform-App-Development/location tracker/obj/Debug/net8.0-maccatalyst/maccatalyst-arm64/resourcestamps/SQLitePCLRaw.core.stamp
+/Users/dennyboechat/Applications/Software-Engineering-and-Multiplatform-App-Development/location tracker/obj/Debug/net8.0-maccatalyst/maccatalyst-arm64/resourcestamps/SQLitePCLRaw.provider.e_sqlite3.stamp
 /Users/dennyboechat/Applications/Software-Engineering-and-Multiplatform-App-Development/location tracker/obj/Debug/net8.0-maccatalyst/maccatalyst-arm64/resourcestamps/System.AppContext.stamp
 /Users/dennyboechat/Applications/Software-Engineering-and-Multiplatform-App-Development/location tracker/obj/Debug/net8.0-maccatalyst/maccatalyst-arm64/resourcestamps/System.Buffers.stamp
 /Users/dennyboechat/Applications/Software-Engineering-and-Multiplatform-App-Development/location tracker/obj/Debug/net8.0-maccatalyst/maccatalyst-arm64/resourcestamps/System.Collections.Concurrent.stamp

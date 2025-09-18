@@ -32,14 +32,14 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			0M/NDtsM+TwCdjk+TwjUg3DX4imhySsyS6S2UQK45SE=
+			S3n7BJL6ugL6Bp+iNGrg4xRFqS+WJngJPiPRCcXkotc=
 			</data>
 		</dict>
 		<key>MonoBundle/LocationTracker.pdb</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			8XSJbgGFeqBot5Pbmb45NEwq6i0yi3Mxx9ZiXccpCO4=
+			UjEKFNfEuuZXHzs7oEVeMuhlh89CoSvxX5e9zppnSxA=
 			</data>
 		</dict>
 		<key>MonoBundle/Microsoft.CSharp.dll</key>
@@ -208,6 +208,34 @@
 			<key>hash2</key>
 			<data>
 			4Bvtj2RnIMWYeWQRnE9f6zavuH+MMjZGbwAjwxm4hJU=
+			</data>
+		</dict>
+		<key>MonoBundle/SQLite-net.dll</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			/0h0FMSssyqe6OCqk97walP3tX35PS56JgVOGN+Fcj4=
+			</data>
+		</dict>
+		<key>MonoBundle/SQLitePCLRaw.batteries_v2.dll</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			gjRl7mHFSQpOKgD38Ukom8XjI2Qb7Y2DHmKnJAHBPO0=
+			</data>
+		</dict>
+		<key>MonoBundle/SQLitePCLRaw.core.dll</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			/PVEeB8v7dLBKhYEuuqRGF/x/WPs4aFwG8KDOi6Bj88=
+			</data>
+		</dict>
+		<key>MonoBundle/SQLitePCLRaw.provider.e_sqlite3.dll</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			ufA5Q2ko2qNnUW/ASAsWjtusKnPXAGFBFMRPlGgOsJI=
 			</data>
 		</dict>
 		<key>MonoBundle/SkiaSharp.Views.Maui.Controls.dll</key>
@@ -1503,6 +1531,13 @@
 			<key>hash2</key>
 			<data>
 			mB+rfjUPmBvG4t0cXauTh5ZjZQC3ENXzkZ9SGH2KtCQ=
+			</data>
+		</dict>
+		<key>MonoBundle/libe_sqlite3.dylib</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			yqw0A8guatlRITsl6wgn+QLkW6ssoWVgyG6IKXGv0HY=
 			</data>
 		</dict>
 		<key>MonoBundle/ms/Microsoft.Maui.Controls.resources.dll</key>

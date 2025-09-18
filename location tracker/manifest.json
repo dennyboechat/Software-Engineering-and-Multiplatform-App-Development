@@ -2,7 +2,7 @@
   "name": "LocationTracker",
   "displayName": "Location Tracker",
   "version": "1.0.0",
-  "description": "A modern cross-platform GPS location tracking application with interactive maps and walking simulation capabilities.",
+  "description": "A modern cross-platform GPS location tracking application with interactive maps, walking simulation, and SQLite database persistence for comprehensive location history management.",
   "author": {
     "name": "Developer",
     "email": "developer@locationtracker.com"
@@ -37,6 +37,7 @@
     "core": [
       "GPS Location Tracking",
       "Interactive Maps",
+      "SQLite Database Storage",
       "Location History",
       "Real-time Updates"
     ],
@@ -44,7 +45,16 @@
       "Walking Simulation",
       "Pin Management", 
       "Coordinate Display",
-      "Permission Management"
+      "Permission Management",
+      "Session Management",
+      "Data Analytics"
+    ],
+    "persistence": [
+      "Automatic Location Saving",
+      "Session Tracking",
+      "Distance Calculations",
+      "JSON Data Export",
+      "Error Recovery"
     ],
     "experimental": [
       "Heat Map Visualization (disabled)",
@@ -58,9 +68,14 @@
       "Microsoft.Maui.Essentials": "8.0.0",
       "SkiaSharp.Views.Maui.Controls": "2.88.0"
     },
+    "database": {
+      "sqlite-net-pcl": "1.9.172",
+      "SQLitePCLRaw.bundle_green": "2.1.8"
+    },
     "runtime": {
       ".NET": "8.0",
-      "MAUI": "8.0"
+      "MAUI": "8.0",
+      "SQLite": "3.x"
     }
   },
   "resources": {
@@ -82,6 +97,13 @@
       "mapZoomRadius": 200,
       "simulationSteps": 20,
       "simulationDuration": 60000
+    },
+    "database": {
+      "filename": "LocationTracker.db",
+      "autoSave": true,
+      "errorRecovery": true,
+      "exportFormats": ["json"],
+      "sessionTracking": true
     },
     "map": {
       "type": "Street",
@@ -126,11 +148,12 @@
   },
   "metadata": {
     "created": "2025-09-18",
-    "lastModified": "2025-09-18",
+    "lastModified": "2025-01-14",
     "language": "C#",
     "ui": "XAML",
-    "architecture": "MVVM",
-    "category": "Navigation & Maps"
+    "architecture": "MVVM with Service Layer",
+    "category": "Navigation & Maps",
+    "dataLayer": "SQLite with ORM"
   },
   "support": {
     "documentation": "README.md",
@@ -142,6 +165,24 @@
     }
   },
   "changelog": {
+    "1.1.0": {
+      "date": "2025-01-14",
+      "changes": [
+        "SQLite database integration for persistent storage",
+        "Comprehensive location history with session management",
+        "Automatic location saving during tracking",
+        "Distance calculations and analytics",
+        "JSON data export functionality",
+        "Enhanced error recovery mechanisms",
+        "Service layer architecture with dependency injection"
+      ],
+      "fixes": [
+        "Resolved app crashes through improved dependency injection",
+        "Added graceful error handling and fallback mechanisms",
+        "Implemented service locator pattern for reliable initialization",
+        "Enhanced stability and error recovery"
+      ]
+    },
     "1.0.0": {
       "date": "2025-09-18",
       "changes": [

@@ -17,25 +17,40 @@ A modern .NET MAUI cross-platform application for tracking and visualizing GPS l
 - Step-by-step visualization on map
 
 ### 📊 **Location History & Data**
-- Comprehensive location history with timestamps
-- GPS accuracy information
-- Coordinate display with precision
-- Export-ready location data
+- **SQLite Database Storage** - Persistent location data across sessions
+- **Session Management** - Group locations by tracking sessions
+- **Comprehensive Metadata** - Timestamps, accuracy, speed, altitude
+- **Data Analytics** - Distance calculations using Haversine formula
+- **Export Functionality** - JSON data export capabilities
+- **Coordinate Display** - Precise GPS coordinates with formatting
 
 ### 🎯 **Advanced Tracking Features**
-- Automatic location permission management
-- Background location tracking capabilities
-- Customizable tracking intervals
-- Heat map visualization (temporarily disabled)
+- **Automatic Data Persistence** - All locations saved to SQLite database
+- **Session-based Tracking** - Unique session IDs for each app launch
+- **Error Recovery** - Graceful degradation when database unavailable
+- **Real-time & Simulation Storage** - Both GPS and simulated data preserved
+- **Automatic Location Permission Management** - Seamless permission handling
+- **Background Location Tracking** - Continuous monitoring capabilities
+- **Customizable Tracking Intervals** - Configurable update frequencies
+- **Heat Map Visualization** - Advanced rendering (temporarily disabled)
 
 ## 🛠️ **Technology Stack**
 
-- **.NET 8.0** - Latest .NET framework
+### **Core Framework**
+- **.NET 8.0** - Latest .NET framework with C# 12
 - **MAUI (Multi-platform App UI)** - Cross-platform development
-- **Microsoft.Maui.Controls.Maps** - Interactive mapping
-- **Microsoft.Maui.Essentials** - GPS and device services
-- **SkiaSharp** - Custom graphics rendering
-- **C# & XAML** - Modern UI development
+- **Microsoft.Maui.Controls.Maps** - Interactive mapping capabilities
+- **Microsoft.Maui.Essentials** - GPS and device services integration
+
+### **Database & Storage**
+- **SQLite** - Local database for persistent location storage
+- **sqlite-net-pcl** - .NET SQLite ORM for data operations
+- **SQLitePCLRaw.bundle_green** - SQLite native bindings
+
+### **UI & Graphics**
+- **XAML** - Declarative UI markup language
+- **SkiaSharp** - Custom graphics rendering engine
+- **C# & MVVM** - Modern application architecture
 
 ## 🚀 **Getting Started**
 
@@ -87,22 +102,34 @@ A modern .NET MAUI cross-platform application for tracking and visualizing GPS l
 2. Watch the 1-minute simulation showing realistic movement
 3. Observe pins appearing every 3 seconds on the map
 4. Stop early with **"Stop Simulation"** (red button) if needed
+5. All simulated locations are automatically saved to database
+
+### **Data Persistence** 💾
+1. **Automatic Storage**: All GPS and simulated locations saved automatically
+2. **Session Tracking**: Each app launch creates a new session ID
+3. **History Loading**: Previous locations automatically restored on app start
+4. **Cross-Session Data**: View location history from previous tracking sessions
+5. **Export Data**: Use database service to export location data to JSON
 
 ## 🗂️ **Project Structure**
 
 ```
 LocationTracker/
-├── 📄 MainPage.xaml           # Main UI layout
-├── 🔧 MainPage.xaml.cs        # Core application logic
+├── 📄 MainPage.xaml           # Main UI layout and controls
+├── 🔧 MainPage.xaml.cs        # Core application logic & database integration
 ├── 📄 App.xaml                # Application configuration
-├── 🔧 MauiProgram.cs          # Application startup
-├── 📄 AppShell.xaml           # Navigation shell
-├── 📊 HeatMapData.cs          # Heat map data structure
-├── 🎨 HeatMapOverlay.cs       # Custom heat map rendering
-├── 📋 LocationTracker.csproj  # Project configuration
+├── 🔧 MauiProgram.cs          # Dependency injection & service registration
+├── 📄 AppShell.xaml           # Navigation shell structure
+├── 📂 Models/                 # Data models and entities
+│   └── 📊 LocationRecord.cs   # SQLite entity for location data
+├── 📂 Services/               # Business logic and data services  
+│   └── 🗄️ LocationDatabaseService.cs # SQLite database operations
+├── 📊 HeatMapData.cs          # Heat map data structure (legacy)
+├── 🎨 HeatMapOverlay.cs       # Custom heat map rendering (disabled)
+├── 📋 LocationTracker.csproj  # Project configuration & dependencies
 ├── 📂 Platforms/              # Platform-specific code
-│   └── 🍎 MacCatalyst/        # macOS-specific configuration
-├── 📂 Resources/              # App resources
+│   └── 🍎 MacCatalyst/        # macOS-specific configuration & entitlements
+├── 📂 Resources/              # App resources and assets
 │   ├── 🎨 AppIcon/            # Application icons
 │   ├── 🎨 Images/             # Image assets
 │   └── 🔤 Fonts/              # Custom fonts
@@ -127,7 +154,47 @@ The app requires location permissions configured in:
 - Distance per step: ~4.2 meters
 - Update interval: 3 seconds
 
-## 🛡️ **Privacy & Permissions**
+## �️ **Database Features**
+
+### **SQLite Storage**
+- **Location**: `[App Data Directory]/LocationTracker.db`
+- **Automatic Creation**: Database and tables created on first run
+- **Persistence**: Data survives app restarts and device reboots
+- **Performance**: Optimized SQLite queries for smooth operation
+
+### **Data Schema**
+```sql
+CREATE TABLE LocationRecords (
+    Id INTEGER PRIMARY KEY AUTOINCREMENT,
+    Latitude REAL NOT NULL,           -- GPS latitude coordinate
+    Longitude REAL NOT NULL,          -- GPS longitude coordinate  
+    Altitude REAL,                    -- Elevation above sea level
+    Accuracy REAL,                    -- GPS accuracy in meters
+    Speed REAL,                       -- Movement speed in m/s
+    Heading REAL,                     -- Direction of movement
+    Timestamp DATETIME NOT NULL,      -- When location was recorded
+    TrackingType TEXT(20),            -- "GPS" or "SIM" for simulation
+    SessionId TEXT(50),               -- Unique session identifier
+    Notes TEXT(100),                  -- Additional metadata
+    IsSimulated BOOLEAN               -- True for simulation data
+);
+```
+
+### **Available Operations**
+- **CRUD Operations**: Create, Read, Update, Delete location records
+- **Session Queries**: Filter locations by tracking session
+- **Date Range Filtering**: Query locations within time periods
+- **Analytics**: Calculate total distance traveled per session
+- **Data Export**: Export location data to JSON format
+- **Recent Locations**: Quick access to latest tracked positions
+
+### **Error Handling**
+- **Graceful Degradation**: App continues working if database fails
+- **Fallback Mode**: Memory-only operation when database unavailable
+- **Silent Recovery**: Automatic error handling with debug logging
+- **User Notifications**: Clear status messages about database state
+
+## �🛡️ **Privacy & Permissions**
 
 ### **Location Access**
 - **When In Use**: Required for location tracking
@@ -135,19 +202,25 @@ The app requires location permissions configured in:
 - **Background Location**: Optional for continuous tracking
 
 ### **Data Handling**
-- Location data stored locally only
-- No external data transmission
-- User controls all location sharing
+- **Local Storage Only**: All data stored in local SQLite database
+- **No Cloud Sync**: No external data transmission or cloud storage
+- **User Privacy**: Complete user control over location data
+- **Data Ownership**: User owns all location data on their device
+- **Offline Operation**: Full functionality without internet connection
+- **Secure Storage**: Database stored in protected app data directory
 
 ## 🚧 **Development Status**
 
 ### ✅ **Completed Features**
-- [x] Basic location services integration
-- [x] Interactive map with pins
-- [x] Real-time location tracking
-- [x] Walking simulation with realistic patterns
-- [x] Location history with timestamps
-- [x] Permission management
+- [x] **Core Location Services**: GPS tracking and location permissions
+- [x] **Interactive Map Interface**: Street maps with pins and user location
+- [x] **Real-time Location Tracking**: Continuous GPS monitoring with timers
+- [x] **Walking Simulation**: Realistic 1-minute movement patterns for testing
+- [x] **SQLite Database Integration**: Persistent storage for all location data
+- [x] **Session Management**: Unique session IDs for grouping location data
+- [x] **Data Analytics**: Distance calculations and location history analysis
+- [x] **Error Recovery**: Graceful degradation and robust error handling
+- [x] **Service Architecture**: Dependency injection and service locator patterns
 - [x] MacCatalyst platform support
 
 ### 🔄 **In Progress**
@@ -155,10 +228,12 @@ The app requires location permissions configured in:
 - [ ] Multi-platform deployment (iOS, Android)
 
 ### 🎯 **Planned Features**
-- [ ] Location data export (CSV, JSON)
+- [ ] CSV data export format
 - [ ] Route planning and navigation
 - [ ] Geofencing capabilities
 - [ ] Location sharing features
+- [ ] Cloud synchronization
+- [ ] Advanced filtering and search
 
 ## 🐛 **Known Issues**
 

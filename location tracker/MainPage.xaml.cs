@@ -1,6 +1,9 @@
 using System.Collections.ObjectModel;
 using Microsoft.Maui.Controls.Maps;
 using Microsoft.Maui.Maps;
+using LocationTracker.Services;
+using LocationTracker.Models;
+using Microsoft.Extensions.DependencyInjection;
 
 namespace LocationTracker;
 
@@ -16,11 +19,31 @@ public partial class MainPage : ContentPage
     private Location? _currentSimulatedLocation = null;
     private int _simulationStep = 0;
     private const int _totalSimulationSteps = 20; // 1 minute / 3 seconds per step
+    private readonly LocationDatabaseService _databaseService;
+    private string _currentSessionId = string.Empty;
     public ObservableCollection<LocationItem> LocationHistory { get; set; }
 
     public MainPage()
     {
         InitializeComponent();
+        
+        // Get database service from service provider with error handling
+        try
+        {
+            _databaseService = Application.Current?.Handler?.MauiContext?.Services?.GetService<LocationDatabaseService>();
+            if (_databaseService == null)
+            {
+                // Fallback: create new instance if service locator fails
+                _databaseService = new LocationDatabaseService();
+            }
+        }
+        catch (Exception ex)
+        {
+            // Fallback: create new instance if any error occurs
+            _databaseService = new LocationDatabaseService();
+            System.Diagnostics.Debug.WriteLine($"Database service injection failed: {ex.Message}");
+        }
+        
         LocationHistory = new ObservableCollection<LocationItem>();
         LocationHistoryView.ItemsSource = LocationHistory;
         
@@ -33,8 +56,87 @@ public partial class MainPage : ContentPage
         _simulationTimer.AutoReset = true;
         _simulationTimer.Elapsed += async (sender, e) => await SimulateNextLocationStep();
         
+        // Initialize database and load existing locations
+        _ = Task.Run(async () => await InitializeDatabaseAsync());
+        
         // Check if location is available on startup
         CheckLocationAvailability();
+    }
+
+    private async Task InitializeDatabaseAsync()
+    {
+        try
+        {
+            if (_databaseService != null)
+            {
+                await _databaseService.InitializeAsync();
+                
+                // Generate new session ID for this app session
+                _currentSessionId = Guid.NewGuid().ToString("N")[..8]; // Short 8-character ID
+                
+                // Load recent locations from database
+                await LoadRecentLocationsAsync();
+                
+                System.Diagnostics.Debug.WriteLine($"Database initialized successfully. Session ID: {_currentSessionId}");
+            }
+            else
+            {
+                System.Diagnostics.Debug.WriteLine("Database service is null, skipping database initialization");
+                _currentSessionId = Guid.NewGuid().ToString("N")[..8]; // Still need session ID
+            }
+        }
+        catch (Exception ex)
+        {
+            System.Diagnostics.Debug.WriteLine($"Database initialization failed: {ex.Message}");
+            _currentSessionId = Guid.NewGuid().ToString("N")[..8]; // Still need session ID
+            
+            // Initialize empty history on UI thread
+            MainThread.BeginInvokeOnMainThread(() =>
+            {
+                LocationHistory.Clear();
+                UpdateStatus("Database unavailable - running in memory mode");
+            });
+        }
+    }
+
+    private async Task LoadRecentLocationsAsync()
+    {
+        try
+        {
+            var recentLocations = await _databaseService.GetRecentLocationsAsync(20);
+            
+            MainThread.BeginInvokeOnMainThread(() =>
+            {
+                LocationHistory.Clear();
+                
+                foreach (var record in recentLocations)
+                {
+                    var locationItem = new LocationItem
+                    {
+                        LocationText = record.LocationText,
+                        Timestamp = $"{record.DisplayType} {record.TimestampText}",
+                        AccuracyText = record.AccuracyText,
+                        Latitude = record.Latitude,
+                        Longitude = record.Longitude,
+                        Accuracy = record.Accuracy ?? 0
+                    };
+                    
+                    LocationHistory.Add(locationItem);
+                    
+                    // Add pins for stored locations
+                    AddLocationPin(new Location(record.Latitude, record.Longitude), record.DisplayType);
+                }
+                
+                if (recentLocations.Any())
+                {
+                    UpdateStatus($"Loaded {recentLocations.Count} locations from database");
+                }
+            });
+        }
+        catch (Exception ex)
+        {
+            System.Diagnostics.Debug.WriteLine($"Failed to load recent locations: {ex.Message}");
+        }
     }
 
     private async void CheckLocationAvailability()
@@ -243,6 +345,9 @@ public partial class MainPage : ContentPage
                     
                     UpdateStatus(_isTracking ? "Tracking active" : "Location updated");
                 });
+                
+                // Save to database
+                await SaveLocationToDatabase(location, false);
             }
             else
             {
@@ -287,6 +392,40 @@ public partial class MainPage : ContentPage
                 LoadingIndicator.IsVisible = false;
                 LoadingIndicator.IsRunning = false;
             });
+        }
+    }
+
+    private async Task SaveLocationToDatabase(Location location, bool isSimulated)
+    {
+        try
+        {
+            if (_databaseService == null)
+            {
+                System.Diagnostics.Debug.WriteLine("Database service not available, skipping location save");
+                return;
+            }
+
+            var locationRecord = new LocationRecord
+            {
+                Latitude = location.Latitude,
+                Longitude = location.Longitude,
+                Altitude = location.Altitude,
+                Accuracy = location.Accuracy,
+                Speed = location.Speed,
+                Heading = location.Course,
+                Timestamp = DateTime.Now,
+                TrackingType = isSimulated ? "SIM" : "GPS",
+                SessionId = _currentSessionId ?? "unknown",
+                IsSimulated = isSimulated,
+                Notes = isSimulated ? $"Simulation step {_simulationStep}" : ""
+            };
+
+            await _databaseService.SaveLocationAsync(locationRecord);
+            System.Diagnostics.Debug.WriteLine($"Saved location to database: {locationRecord.LocationText} (Session: {_currentSessionId})");
+        }
+        catch (Exception ex)
+        {
+            System.Diagnostics.Debug.WriteLine($"Failed to save location to database: {ex.Message}. Continuing without database.");
         }
     }
 
@@ -524,6 +663,9 @@ public partial class MainPage : ContentPage
             var remainingTime = (_totalSimulationSteps - _simulationStep) * 3;
             UpdateStatus($"Walking simulation... {remainingTime}s remaining (Step {_simulationStep}/{_totalSimulationSteps})");
         });
+        
+        // Save simulated location to database
+        _ = Task.Run(async () => await SaveLocationToDatabase(location, true));
     }
 
     protected override void OnDisappearing()

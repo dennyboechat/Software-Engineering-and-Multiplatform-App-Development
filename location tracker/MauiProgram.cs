@@ -1,4 +1,5 @@
 using Microsoft.Extensions.Logging;
+using LocationTracker.Services;
 
 namespace LocationTracker;
 
@@ -15,6 +16,9 @@ public static class MauiProgram
                 fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");
                 fonts.AddFont("OpenSans-Semibold.ttf", "OpenSansSemibold");
             });
+
+        // Register database service
+        builder.Services.AddSingleton<LocationDatabaseService>();
 
 #if DEBUG
         builder.Services.AddLogging(logging =>

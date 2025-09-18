@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "lTKQHF9IMgI=",
+  "dgSpecHash": "E2yhYXiRom4=",
   "success": true,
   "projectFilePath": "/Users/dennyboechat/Applications/Software-Engineering-and-Multiplatform-App-Development/location tracker/LocationTracker.csproj",
   "expectedPackageFiles": [
@@ -29,7 +29,13 @@
     "/Users/dennyboechat/.nuget/packages/skiasharp.nativeassets.maccatalyst/2.88.8/skiasharp.nativeassets.maccatalyst.2.88.8.nupkg.sha512",
     "/Users/dennyboechat/.nuget/packages/skiasharp.views/2.88.8/skiasharp.views.2.88.8.nupkg.sha512",
     "/Users/dennyboechat/.nuget/packages/skiasharp.views.maui.controls/2.88.8/skiasharp.views.maui.controls.2.88.8.nupkg.sha512",
-    "/Users/dennyboechat/.nuget/packages/skiasharp.views.maui.core/2.88.8/skiasharp.views.maui.core.2.88.8.nupkg.sha512"
+    "/Users/dennyboechat/.nuget/packages/skiasharp.views.maui.core/2.88.8/skiasharp.views.maui.core.2.88.8.nupkg.sha512",
+    "/Users/dennyboechat/.nuget/packages/sqlite-net-pcl/1.9.172/sqlite-net-pcl.1.9.172.nupkg.sha512",
+    "/Users/dennyboechat/.nuget/packages/sqlitepclraw.bundle_green/2.1.8/sqlitepclraw.bundle_green.2.1.8.nupkg.sha512",
+    "/Users/dennyboechat/.nuget/packages/sqlitepclraw.core/2.1.8/sqlitepclraw.core.2.1.8.nupkg.sha512",
+    "/Users/dennyboechat/.nuget/packages/sqlitepclraw.lib.e_sqlite3/2.1.8/sqlitepclraw.lib.e_sqlite3.2.1.8.nupkg.sha512",
+    "/Users/dennyboechat/.nuget/packages/sqlitepclraw.provider.e_sqlite3/2.1.8/sqlitepclraw.provider.e_sqlite3.2.1.8.nupkg.sha512",
+    "/Users/dennyboechat/.nuget/packages/system.memory/4.5.3/system.memory.4.5.3.nupkg.sha512"
   ],
   "logs": []
 }

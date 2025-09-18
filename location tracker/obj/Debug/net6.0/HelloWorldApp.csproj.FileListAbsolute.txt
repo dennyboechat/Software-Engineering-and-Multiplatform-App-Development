@@ -1,0 +1,15 @@
+/Users/dennyboechat/Applications/Software-Engineering-and-Multiplatform-App-Development/location tracker/bin/Debug/net6.0/HelloWorldApp
+/Users/dennyboechat/Applications/Software-Engineering-and-Multiplatform-App-Development/location tracker/bin/Debug/net6.0/HelloWorldApp.deps.json
+/Users/dennyboechat/Applications/Software-Engineering-and-Multiplatform-App-Development/location tracker/bin/Debug/net6.0/HelloWorldApp.runtimeconfig.json
+/Users/dennyboechat/Applications/Software-Engineering-and-Multiplatform-App-Development/location tracker/bin/Debug/net6.0/HelloWorldApp.dll
+/Users/dennyboechat/Applications/Software-Engineering-and-Multiplatform-App-Development/location tracker/bin/Debug/net6.0/HelloWorldApp.pdb
+/Users/dennyboechat/Applications/Software-Engineering-and-Multiplatform-App-Development/location tracker/obj/Debug/net6.0/HelloWorldApp.GeneratedMSBuildEditorConfig.editorconfig
+/Users/dennyboechat/Applications/Software-Engineering-and-Multiplatform-App-Development/location tracker/obj/Debug/net6.0/HelloWorldApp.AssemblyInfoInputs.cache
+/Users/dennyboechat/Applications/Software-Engineering-and-Multiplatform-App-Development/location tracker/obj/Debug/net6.0/HelloWorldApp.AssemblyInfo.cs
+/Users/dennyboechat/Applications/Software-Engineering-and-Multiplatform-App-Development/location tracker/obj/Debug/net6.0/HelloWorldApp.csproj.CoreCompileInputs.cache
+/Users/dennyboechat/Applications/Software-Engineering-and-Multiplatform-App-Development/location tracker/obj/Debug/net6.0/HelloWorldApp.sourcelink.json
+/Users/dennyboechat/Applications/Software-Engineering-and-Multiplatform-App-Development/location tracker/obj/Debug/net6.0/HelloWorldApp.dll
+/Users/dennyboechat/Applications/Software-Engineering-and-Multiplatform-App-Development/location tracker/obj/Debug/net6.0/refint/HelloWorldApp.dll
+/Users/dennyboechat/Applications/Software-Engineering-and-Multiplatform-App-Development/location tracker/obj/Debug/net6.0/HelloWorldApp.pdb
+/Users/dennyboechat/Applications/Software-Engineering-and-Multiplatform-App-Development/location tracker/obj/Debug/net6.0/HelloWorldApp.genruntimeconfig.cache
+/Users/dennyboechat/Applications/Software-Engineering-and-Multiplatform-App-Development/location tracker/obj/Debug/net6.0/ref/HelloWorldApp.dll

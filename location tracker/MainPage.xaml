@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage x:Class="LocationTracker.MainPage"
+             xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:maps="clr-namespace:Microsoft.Maui.Controls.Maps;assembly=Microsoft.Maui.Controls.Maps"
+             Title="Location Tracker">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="3*" />
+            <RowDefinition Height="2*" />
+        </Grid.RowDefinitions>
+
+        <!-- Map View -->
+        <maps:Map x:Name="LocationMap" 
+                  Grid.Row="0"
+                  MapType="Street"
+                  IsShowingUser="True" />
+
+        <!-- Controls Panel -->
+        <ScrollView Grid.Row="1">
+            <VerticalStackLayout Spacing="15" Padding="15,10" VerticalOptions="Start">
+            
+            <!-- App Title -->
+            <Label 
+                x:Name="WelcomeLabel"
+                Text="📍 Location Tracker"
+                FontSize="20"
+                HorizontalOptions="Center"
+                TextColor="{StaticResource Primary}" />
+
+            <!-- Current Location Display -->
+            <Frame BackgroundColor="{StaticResource Gray100}" Padding="10" CornerRadius="8">
+                <VerticalStackLayout Spacing="5">
+                    <Label Text="Current Location" FontSize="14" FontAttributes="Bold" />
+                    <Label x:Name="LocationLabel" Text="Location not available" FontSize="12" />
+                    <Label x:Name="TimestampLabel" Text="" FontSize="10" TextColor="{StaticResource Gray600}" />
+                </VerticalStackLayout>
+            </Frame>
+
+            <!-- Control Buttons -->
+            <Grid ColumnDefinitions="*,*" ColumnSpacing="15">
+                <Button 
+                    x:Name="GetLocationBtn"
+                    Text="Get Current Location"
+                    Clicked="OnGetLocationClicked"
+                    Grid.Column="0" />
+                
+                <Button 
+                    x:Name="ToggleTrackingBtn"
+                    Text="Start Tracking"
+                    Clicked="OnToggleTrackingClicked"
+                    BackgroundColor="{StaticResource Tertiary}"
+                    Grid.Column="1" />
+            </Grid>
+
+            <!-- Location History -->
+            <Frame BackgroundColor="{StaticResource Gray100}" Padding="10" CornerRadius="8">
+                <VerticalStackLayout Spacing="8">
+                    <Label Text="Location History" FontSize="14" FontAttributes="Bold" />
+                    <CollectionView x:Name="LocationHistoryView" 
+                                    ItemsSource="{Binding LocationHistory}"
+                                    MaximumHeightRequest="150">
+                        <CollectionView.ItemTemplate>
+                            <DataTemplate>
+                                <Grid Padding="3" ColumnDefinitions="*,Auto">
+                                    <VerticalStackLayout Grid.Column="0">
+                                        <Label Text="{Binding LocationText}" FontSize="10" />
+                                        <Label Text="{Binding Timestamp}" FontSize="8" TextColor="{StaticResource Gray600}" />
+                                    </VerticalStackLayout>
+                                    <Label Grid.Column="1" Text="{Binding AccuracyText}" FontSize="8" TextColor="{StaticResource Gray500}" />
+                                </Grid>
+                            </DataTemplate>
+                        </CollectionView.ItemTemplate>
+                    </CollectionView>
+                    
+                    <Button 
+                        x:Name="ClearHistoryBtn"
+                        Text="Clear History"
+                        Clicked="OnClearHistoryClicked"
+                        BackgroundColor="{StaticResource Gray400}"
+                        FontSize="12"
+                        Padding="8,4" />
+                </VerticalStackLayout>
+            </Frame>
+
+            <!-- Status Indicator -->
+            <StackLayout Orientation="Horizontal" HorizontalOptions="Center" Spacing="10">
+                <ActivityIndicator x:Name="LoadingIndicator" IsVisible="False" IsRunning="False" />
+                <Label x:Name="StatusLabel" Text="Ready" FontSize="14" TextColor="{StaticResource Gray600}" />
+            </StackLayout>
+
+            </VerticalStackLayout>
+        </ScrollView>
+    </Grid>
+
+</ContentPage>

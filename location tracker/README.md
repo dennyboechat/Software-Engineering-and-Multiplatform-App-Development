@@ -10,12 +10,6 @@ A modern .NET MAUI cross-platform application for tracking and visualizing GPS l
 - Pin markers showing location history
 - Automatic map centering and zoom control
 
-### 🚶‍♂️ **Walking Simulation**
-- 1-minute walking simulation for testing
-- Realistic GPS coordinate generation
-- Multiple walking patterns (straight lines, curves, random walk)
-- Step-by-step visualization on map
-
 ### 📊 **Location History & Data**
 - **SQLite Database Storage** - Persistent location data across sessions
 - **Session Management** - Group locations by tracking sessions

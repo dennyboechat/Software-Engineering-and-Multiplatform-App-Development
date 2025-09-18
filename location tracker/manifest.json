@@ -1,0 +1,161 @@
+{
+  "name": "LocationTracker",
+  "displayName": "Location Tracker",
+  "version": "1.0.0",
+  "description": "A modern cross-platform GPS location tracking application with interactive maps and walking simulation capabilities.",
+  "author": {
+    "name": "Developer",
+    "email": "developer@locationtracker.com"
+  },
+  "applicationId": "com.companyname.locationtracker",
+  "platform": {
+    "target": "net8.0-maccatalyst",
+    "minimumVersion": "13.1",
+    "framework": ".NET MAUI"
+  },
+  "capabilities": [
+    {
+      "name": "Location Services",
+      "description": "Access to device GPS for location tracking",
+      "permission": "NSLocationWhenInUseUsageDescription",
+      "required": true
+    },
+    {
+      "name": "Precise Location",
+      "description": "High accuracy GPS coordinates",
+      "permission": "NSLocationUsageDescription", 
+      "required": true
+    },
+    {
+      "name": "Network Access",
+      "description": "Internet connectivity for map tiles",
+      "permission": "NetworkAccess",
+      "required": false
+    }
+  ],
+  "features": {
+    "core": [
+      "GPS Location Tracking",
+      "Interactive Maps",
+      "Location History",
+      "Real-time Updates"
+    ],
+    "advanced": [
+      "Walking Simulation",
+      "Pin Management", 
+      "Coordinate Display",
+      "Permission Management"
+    ],
+    "experimental": [
+      "Heat Map Visualization (disabled)",
+      "Background Tracking"
+    ]
+  },
+  "dependencies": {
+    "framework": {
+      "Microsoft.Maui.Controls": "8.0.0",
+      "Microsoft.Maui.Controls.Maps": "8.0.0", 
+      "Microsoft.Maui.Essentials": "8.0.0",
+      "SkiaSharp.Views.Maui.Controls": "2.88.0"
+    },
+    "runtime": {
+      ".NET": "8.0",
+      "MAUI": "8.0"
+    }
+  },
+  "resources": {
+    "icons": {
+      "appIcon": "Resources/AppIcon/appicon.svg",
+      "foregroundIcon": "Resources/AppIcon/appiconfg.svg"
+    },
+    "splash": {
+      "image": "Resources/Splash/splash.svg",
+      "backgroundColor": "#512BD4"
+    },
+    "images": "Resources/Images/",
+    "fonts": "Resources/Fonts/"
+  },
+  "configuration": {
+    "tracking": {
+      "defaultInterval": 3000,
+      "maxPinHistory": 20,
+      "mapZoomRadius": 200,
+      "simulationSteps": 20,
+      "simulationDuration": 60000
+    },
+    "map": {
+      "type": "Street",
+      "showUserLocation": true,
+      "defaultZoom": "1km",
+      "simulationZoom": "200m"
+    },
+    "simulation": {
+      "walkingSpeed": 5.0,
+      "stepDistance": 4.2,
+      "patterns": [
+        "straight_north",
+        "straight_east", 
+        "diagonal_northeast",
+        "curved_path",
+        "random_walk"
+      ]
+    }
+  },
+  "build": {
+    "configuration": "Debug|Release",
+    "outputType": "Exe",
+    "targetFrameworks": [
+      "net8.0-maccatalyst"
+    ],
+    "supportedPlatforms": {
+      "macOS": {
+        "minimumVersion": "13.1",
+        "architecture": ["arm64", "x64"]
+      }
+    }
+  },
+  "security": {
+    "entitlements": "Platforms/MacCatalyst/Entitlements.plist",
+    "codeSign": true,
+    "bundleId": "com.companyname.locationtracker"
+  },
+  "deployment": {
+    "type": "MacCatalyst",
+    "installer": "DMG",
+    "distribution": "Development|App Store"
+  },
+  "metadata": {
+    "created": "2025-09-18",
+    "lastModified": "2025-09-18",
+    "language": "C#",
+    "ui": "XAML",
+    "architecture": "MVVM",
+    "category": "Navigation & Maps"
+  },
+  "support": {
+    "documentation": "README.md",
+    "issues": "Known issues documented in README",
+    "compatibility": {
+      "minimum": "macOS 13.1",
+      "recommended": "macOS 14.0+",
+      "tested": "macOS 14.0"
+    }
+  },
+  "changelog": {
+    "1.0.0": {
+      "date": "2025-09-18",
+      "changes": [
+        "Initial release with GPS tracking",
+        "Interactive map integration",
+        "Walking simulation feature",
+        "Location history management",
+        "MacCatalyst platform support"
+      ],
+      "fixes": [
+        "Heat map temporarily disabled for stability",
+        "Improved pin visibility on map",
+        "Enhanced permission handling"
+      ]
+    }
+  }
+}

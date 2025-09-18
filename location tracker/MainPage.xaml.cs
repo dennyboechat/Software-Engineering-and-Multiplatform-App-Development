@@ -437,8 +437,9 @@ public partial class MainPage : ContentPage
     private void UpdateMapLocation(Location location)
     {
         var position = new Location(location.Latitude, location.Longitude);
-        // Use smaller radius for walking simulation to see details better
-        var mapSpan = MapSpan.FromCenterAndRadius(position, Distance.FromMeters(200));
+        // Use larger radius for simulation to show the extended walking path
+        var radius = _isSimulating ? Distance.FromMeters(600) : Distance.FromMeters(200);
+        var mapSpan = MapSpan.FromCenterAndRadius(position, radius);
         LocationMap.MoveToRegion(mapSpan);
         
         // Debug: Log map update
@@ -591,26 +592,26 @@ public partial class MainPage : ContentPage
 
     private Location GenerateNextWalkingLocation(Location currentLocation, int step)
     {
-        // Simulate realistic walking movement
-        // Average walking speed: ~5 km/h = ~1.4 m/s
-        // In 3 seconds: ~4.2 meters
+        // Simulate faster walking movement to cover more distance
+        // Increased walking speed: ~15 km/h = ~4.2 m/s (like jogging/fast walking)
+        // In 3 seconds: ~12.6 meters (3x the original distance)
         // GPS coordinates: 1 degree latitude ≈ 111,000 meters
         
         var random = new Random();
         
-        // Generate a walking pattern (could be straight, curved, or with turns)
+        // Generate a walking pattern with larger distances (could be straight, curved, or with turns)
         var walkingPatterns = new[]
         {
-            // Straight line north
-            (latChange: 0.000038, lonChange: 0.0),
-            // Straight line east  
-            (latChange: 0.0, lonChange: 0.000038),
-            // Diagonal northeast
-            (latChange: 0.000027, lonChange: 0.000027),
-            // Slight curve (changing direction)
-            (latChange: 0.000035 * Math.Sin(step * 0.3), lonChange: 0.000035 * Math.Cos(step * 0.3)),
-            // Random walk (more realistic)
-            (latChange: (random.NextDouble() - 0.5) * 0.000076, lonChange: (random.NextDouble() - 0.5) * 0.000076)
+            // Straight line north (3x distance)
+            (latChange: 0.000114, lonChange: 0.0),
+            // Straight line east (3x distance)
+            (latChange: 0.0, lonChange: 0.000114),
+            // Diagonal northeast (3x distance)
+            (latChange: 0.000081, lonChange: 0.000081),
+            // Large curve (changing direction, 3x distance)
+            (latChange: 0.000105 * Math.Sin(step * 0.3), lonChange: 0.000105 * Math.Cos(step * 0.3)),
+            // Random walk with larger steps (3x distance)
+            (latChange: (random.NextDouble() - 0.5) * 0.000228, lonChange: (random.NextDouble() - 0.5) * 0.000228)
         };
         
         // Choose pattern based on step (creates variety)

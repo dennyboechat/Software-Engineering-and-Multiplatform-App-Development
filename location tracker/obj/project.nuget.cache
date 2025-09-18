@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "MizdU56l5jM=",
+  "dgSpecHash": "lTKQHF9IMgI=",
   "success": true,
   "projectFilePath": "/Users/dennyboechat/Applications/Software-Engineering-and-Multiplatform-App-Development/location tracker/LocationTracker.csproj",
   "expectedPackageFiles": [
@@ -24,7 +24,12 @@
     "/Users/dennyboechat/.nuget/packages/microsoft.maui.graphics/8.0.100/microsoft.maui.graphics.8.0.100.nupkg.sha512",
     "/Users/dennyboechat/.nuget/packages/microsoft.maui.maps/8.0.100/microsoft.maui.maps.8.0.100.nupkg.sha512",
     "/Users/dennyboechat/.nuget/packages/microsoft.maui.resizetizer/8.0.100/microsoft.maui.resizetizer.8.0.100.nupkg.sha512",
-    "/Users/dennyboechat/.nuget/packages/microsoft.net.illink.tasks/8.0.20/microsoft.net.illink.tasks.8.0.20.nupkg.sha512"
+    "/Users/dennyboechat/.nuget/packages/microsoft.net.illink.tasks/8.0.20/microsoft.net.illink.tasks.8.0.20.nupkg.sha512",
+    "/Users/dennyboechat/.nuget/packages/skiasharp/2.88.8/skiasharp.2.88.8.nupkg.sha512",
+    "/Users/dennyboechat/.nuget/packages/skiasharp.nativeassets.maccatalyst/2.88.8/skiasharp.nativeassets.maccatalyst.2.88.8.nupkg.sha512",
+    "/Users/dennyboechat/.nuget/packages/skiasharp.views/2.88.8/skiasharp.views.2.88.8.nupkg.sha512",
+    "/Users/dennyboechat/.nuget/packages/skiasharp.views.maui.controls/2.88.8/skiasharp.views.maui.controls.2.88.8.nupkg.sha512",
+    "/Users/dennyboechat/.nuget/packages/skiasharp.views.maui.core/2.88.8/skiasharp.views.maui.core.2.88.8.nupkg.sha512"
   ],
   "logs": []
 }

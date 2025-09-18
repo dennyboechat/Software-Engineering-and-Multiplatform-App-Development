@@ -296,6 +296,11 @@
 /Users/dennyboechat/Applications/Software-Engineering-and-Multiplatform-App-Development/location tracker/obj/Debug/net8.0-maccatalyst/maccatalyst-arm64/ref/LocationTracker.dll
 /Users/dennyboechat/Applications/Software-Engineering-and-Multiplatform-App-Development/location tracker/bin/Debug/net8.0-maccatalyst/maccatalyst-arm64/Microsoft.Maui.Controls.Maps.dll
 /Users/dennyboechat/Applications/Software-Engineering-and-Multiplatform-App-Development/location tracker/bin/Debug/net8.0-maccatalyst/maccatalyst-arm64/Microsoft.Maui.Maps.dll
+/Users/dennyboechat/Applications/Software-Engineering-and-Multiplatform-App-Development/location tracker/bin/Debug/net8.0-maccatalyst/maccatalyst-arm64/SkiaSharp.dll
+/Users/dennyboechat/Applications/Software-Engineering-and-Multiplatform-App-Development/location tracker/bin/Debug/net8.0-maccatalyst/maccatalyst-arm64/SkiaSharp.Views.iOS.dll
+/Users/dennyboechat/Applications/Software-Engineering-and-Multiplatform-App-Development/location tracker/bin/Debug/net8.0-maccatalyst/maccatalyst-arm64/SkiaSharp.Views.Maui.Controls.dll
+/Users/dennyboechat/Applications/Software-Engineering-and-Multiplatform-App-Development/location tracker/bin/Debug/net8.0-maccatalyst/maccatalyst-arm64/SkiaSharp.Views.Maui.Core.dll
+/Users/dennyboechat/Applications/Software-Engineering-and-Multiplatform-App-Development/location tracker/bin/Debug/net8.0-maccatalyst/maccatalyst-arm64/libSkiaSharp.framework.zip
 /Users/dennyboechat/Applications/Software-Engineering-and-Multiplatform-App-Development/location tracker/obj/Debug/net8.0-maccatalyst/maccatalyst-arm64/resourcestamps/Microsoft.CSharp.stamp
 /Users/dennyboechat/Applications/Software-Engineering-and-Multiplatform-App-Development/location tracker/obj/Debug/net8.0-maccatalyst/maccatalyst-arm64/resourcestamps/Microsoft.Extensions.Configuration.Abstractions.stamp
 /Users/dennyboechat/Applications/Software-Engineering-and-Multiplatform-App-Development/location tracker/obj/Debug/net8.0-maccatalyst/maccatalyst-arm64/resourcestamps/Microsoft.Extensions.Configuration.stamp
@@ -321,6 +326,10 @@
 /Users/dennyboechat/Applications/Software-Engineering-and-Multiplatform-App-Development/location tracker/obj/Debug/net8.0-maccatalyst/maccatalyst-arm64/resourcestamps/Microsoft.Win32.Registry.stamp
 /Users/dennyboechat/Applications/Software-Engineering-and-Multiplatform-App-Development/location tracker/obj/Debug/net8.0-maccatalyst/maccatalyst-arm64/resourcestamps/mscorlib.stamp
 /Users/dennyboechat/Applications/Software-Engineering-and-Multiplatform-App-Development/location tracker/obj/Debug/net8.0-maccatalyst/maccatalyst-arm64/resourcestamps/netstandard.stamp
+/Users/dennyboechat/Applications/Software-Engineering-and-Multiplatform-App-Development/location tracker/obj/Debug/net8.0-maccatalyst/maccatalyst-arm64/resourcestamps/SkiaSharp.stamp
+/Users/dennyboechat/Applications/Software-Engineering-and-Multiplatform-App-Development/location tracker/obj/Debug/net8.0-maccatalyst/maccatalyst-arm64/resourcestamps/SkiaSharp.Views.iOS.stamp
+/Users/dennyboechat/Applications/Software-Engineering-and-Multiplatform-App-Development/location tracker/obj/Debug/net8.0-maccatalyst/maccatalyst-arm64/resourcestamps/SkiaSharp.Views.Maui.Controls.stamp
+/Users/dennyboechat/Applications/Software-Engineering-and-Multiplatform-App-Development/location tracker/obj/Debug/net8.0-maccatalyst/maccatalyst-arm64/resourcestamps/SkiaSharp.Views.Maui.Core.stamp
 /Users/dennyboechat/Applications/Software-Engineering-and-Multiplatform-App-Development/location tracker/obj/Debug/net8.0-maccatalyst/maccatalyst-arm64/resourcestamps/System.AppContext.stamp
 /Users/dennyboechat/Applications/Software-Engineering-and-Multiplatform-App-Development/location tracker/obj/Debug/net8.0-maccatalyst/maccatalyst-arm64/resourcestamps/System.Buffers.stamp
 /Users/dennyboechat/Applications/Software-Engineering-and-Multiplatform-App-Development/location tracker/obj/Debug/net8.0-maccatalyst/maccatalyst-arm64/resourcestamps/System.Collections.Concurrent.stamp

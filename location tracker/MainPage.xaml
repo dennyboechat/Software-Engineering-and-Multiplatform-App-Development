@@ -3,6 +3,7 @@
              xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:maps="clr-namespace:Microsoft.Maui.Controls.Maps;assembly=Microsoft.Maui.Controls.Maps"
+             xmlns:local="clr-namespace:LocationTracker"
              Title="Location Tracker">
 
     <Grid>
@@ -16,6 +17,11 @@
                   Grid.Row="0"
                   MapType="Street"
                   IsShowingUser="True" />
+            
+        <!-- Heat Map Overlay - Temporarily Disabled -->
+        <!-- <local:HeatMapOverlay x:Name="HeatMapOverlay"
+                                  IsVisible="False"
+                                  InputTransparent="True" /> -->
 
         <!-- Controls Panel -->
         <ScrollView Grid.Row="1">
@@ -44,15 +50,59 @@
                     x:Name="GetLocationBtn"
                     Text="Get Current Location"
                     Clicked="OnGetLocationClicked"
-                    Grid.Column="0" />
+                    Grid.Column="0"
+                    FontSize="11" />
                 
                 <Button 
                     x:Name="ToggleTrackingBtn"
                     Text="Start Tracking"
                     Clicked="OnToggleTrackingClicked"
                     BackgroundColor="{StaticResource Tertiary}"
-                    Grid.Column="1" />
+                    Grid.Column="1"
+                    FontSize="11" />
             </Grid>
+
+            <!-- Simulation Controls -->
+            <Grid ColumnDefinitions="*,*" ColumnSpacing="15">
+                <Button 
+                    x:Name="SimulateWalkingBtn"
+                    Text="Simulate Walking"
+                    Clicked="OnSimulateWalkingClicked"
+                    BackgroundColor="#FF8C00"
+                    TextColor="White"
+                    Grid.Column="0"
+                    FontSize="11" />
+                
+                <Button 
+                    x:Name="StopSimulationBtn"
+                    Text="Stop Simulation"
+                    Clicked="OnStopSimulationClicked"
+                    BackgroundColor="#DC143C"
+                    TextColor="White"
+                    Grid.Column="1"
+                    FontSize="11"
+                    IsVisible="False" />
+            </Grid>
+
+            <!-- Heat Map Controls - Temporarily Disabled -->
+            <!-- <Grid ColumnDefinitions="*,*" ColumnSpacing="15">
+                <Button 
+                    x:Name="ToggleHeatMapBtn"
+                    Text="Show Heat Map"
+                    Clicked="OnToggleHeatMapClicked"
+                    BackgroundColor="{StaticResource Secondary}"
+                    TextColor="{StaticResource Primary}"
+                    Grid.Column="0"
+                    FontSize="11" />
+                
+                <Button 
+                    x:Name="ToggleViewBtn"
+                    Text="Show Pins"
+                    Clicked="OnToggleViewClicked"
+                    BackgroundColor="{StaticResource Gray300}"
+                    Grid.Column="1"
+                    FontSize="11" />
+            </Grid> -->
 
             <!-- Location History -->
             <Frame BackgroundColor="{StaticResource Gray100}" Padding="10" CornerRadius="8">

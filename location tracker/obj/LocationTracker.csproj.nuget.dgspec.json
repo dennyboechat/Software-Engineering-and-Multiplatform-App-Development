@@ -70,6 +70,10 @@
               "target": "Package",
               "version": "[8.0.20, )",
               "autoReferenced": true
+            },
+            "SkiaSharp.Views.Maui.Controls": {
+              "target": "Package",
+              "version": "[2.88.8, )"
             }
           },
           "imports": [

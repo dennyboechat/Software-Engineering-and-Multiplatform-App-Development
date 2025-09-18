@@ -19,18 +19,27 @@
 	</dict>
 	<key>files2</key>
 	<dict>
+		<key>Frameworks/libSkiaSharp.framework</key>
+		<dict>
+			<key>cdhash</key>
+			<data>
+			wE9420CeUtoHhoDpx06yTfTZTmM=
+			</data>
+			<key>requirement</key>
+			<string>cdhash H"c04f78db409e52da078680e9c74eb24df4d94e63"</string>
+		</dict>
 		<key>MonoBundle/LocationTracker.dll</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			Ey6aIWlOk68/07oHbzlsexVSGk5/G5EYzY9PoC4ck1c=
+			0M/NDtsM+TwCdjk+TwjUg3DX4imhySsyS6S2UQK45SE=
 			</data>
 		</dict>
 		<key>MonoBundle/LocationTracker.pdb</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			foLK3FpUkJbTzugsc4nXuMI0kmdXjT7P0sFmrrPAbnI=
+			8XSJbgGFeqBot5Pbmb45NEwq6i0yi3Mxx9ZiXccpCO4=
 			</data>
 		</dict>
 		<key>MonoBundle/Microsoft.CSharp.dll</key>
@@ -199,6 +208,34 @@
 			<key>hash2</key>
 			<data>
 			4Bvtj2RnIMWYeWQRnE9f6zavuH+MMjZGbwAjwxm4hJU=
+			</data>
+		</dict>
+		<key>MonoBundle/SkiaSharp.Views.Maui.Controls.dll</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			2U1PKDFyQTpo1HtNbcLcHYb6GEpGtJAssHbdVxJ2hek=
+			</data>
+		</dict>
+		<key>MonoBundle/SkiaSharp.Views.Maui.Core.dll</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			O3pUsTXM11ohwTlv9s0T8uJ0Yi8a5FO0C2LId3dbISU=
+			</data>
+		</dict>
+		<key>MonoBundle/SkiaSharp.Views.iOS.dll</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			CeyKpUFQld4BjqfLrA05AOVhJCefqhIRN8IaIqVkP6I=
+			</data>
+		</dict>
+		<key>MonoBundle/SkiaSharp.dll</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			HIQGSaz5oP4l2WGDsie2H+wM6zdQeR+0Km6cHtgZM9Q=
 			</data>
 		</dict>
 		<key>MonoBundle/System.AppContext.dll</key>
